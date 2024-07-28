@@ -3,7 +3,7 @@
 ## [OpenCV](https://github.com/opencv/opencv)
 - [CMake](https://cmake.org/)
     - "Where is the source code" に [opencv](https://github.com/opencv/opencv) をクローンしたレポジトリを指定
-    - "Where to build the binaries" に適当なフォルダ (以下 **CVPATH** とする) を指定する
+    - "Where to build the binaries" に適当なフォルダ (以下 **OPENCV_SDK_PATH** とする) を指定する
     - "Configure"
     - オプション
         - ライブラリが大量にできて使用時に大変なのでまとめる
@@ -13,7 +13,7 @@
             - [contrib](https://github.com/opencv/opencv_contrib) をクローンする
                 - OPENCV_EXTRA_MODULES_PATH に contrib/mudules フォルダを指定する
             - WITH_CUDA にチェックを入れる
-            - CMAKE_INSTALL_PREFIX に **CVPATH** と同じフォルダを指定しておく
+            - CMAKE_INSTALL_PREFIX に **OPENCV_SDK_PATH** と同じフォルダを指定しておく
         - 再度 "Configure"
     - "Generate"
         - OpenCV.sln ができる
@@ -21,13 +21,13 @@
     - OpenCV.sln を開く
     - Build - Batch Build - ALL_BUILD (Debug, Release) を行う
     - Build - Batch Build - INSTALL (Debug, Release) を行う
-        - **CVPATH** 以下へインストールされる
+        - **OPENCV_SDK_PATH**\build 以下へインストールされる
 - 使用
     - Visutal Studio プロパティの指定
         - 追加のインクルードディレクトリ
-            - **CVPATH**\include
+            - **OPENCV_SDK_PATH**\build\include
         - 追加のライブラリディレクトリ
-            - **CVPATH**\x64\vc17\lib
+            - **OPENCV_SDK_PATH**\build\x64\vc17\lib
         - 以下のように .lib を追加する
             ~~~
             #ifdef _DEBUG           
@@ -39,7 +39,7 @@
             #endif
             ~~~
         - DLL の場所を環境変数 Path に通しておく
-            - **CVPATH**\x64\vc17\bin
+            - **OPENCV_SDK_PATH**\build\x64\vc17\bin
 
     - CUDA 使用時
         - 追加のライブラリディレクトリ
