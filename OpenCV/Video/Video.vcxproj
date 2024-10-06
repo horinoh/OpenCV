@@ -21,8 +21,8 @@
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{e991c854-8472-433e-8ac5-69a666679b38}</ProjectGuid>
-    <RootNamespace>Stereo</RootNamespace>
+    <ProjectGuid>{9a4a6268-6523-46bf-8bf4-d93b692e87ac}</ProjectGuid>
+    <RootNamespace>Video</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -133,6 +133,9 @@
   <ItemGroup>
     <ClCompile Include="..\CV.cpp" />
     <ClCompile Include="Main.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\CV.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

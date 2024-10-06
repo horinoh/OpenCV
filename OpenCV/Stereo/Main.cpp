@@ -3,20 +3,7 @@
 #include <format>
 #include <filesystem>
 
-#pragma warning(push)
-#pragma warning(disable : 4819)
-#include <opencv2/opencv.hpp>
-#pragma warning(pop)
-#include <opencv2/cudastereo.hpp>
-
-#ifdef _DEBUG           
-#pragma comment(lib, "opencv_img_hash4100d.lib")
-#pragma comment(lib, "opencv_world4100d.lib")
-#else           
-#pragma comment(lib, "opencv_img_hash4100.lib")
-#pragma comment(lib, "opencv_world4100.lib")
-#endif
-#pragma comment(lib, "cudart_static.lib")
+#include "../CV.h"
 
 //!< https://github.com/opencv/opencv をクローンし、そのフォルダを環境変数 OPENCV_REPO_PATH に設定してある前提
 static auto GetOpenCVRepoPath() {
@@ -45,6 +32,9 @@ static cv::Mat& ToGrayScale(cv::Mat& Disparity) {
 
 int main() 
 {
+	//!< ビルド情報
+	std::cout << cv::getBuildInformation() << std::endl;
+
 	//!< CUDA サポートをチェック
 	const auto HasCuda = 0 < cv::cuda::getCudaEnabledDeviceCount();
 	std::cout << std::format("CUDA {} supported\n", HasCuda ? "" : "not") << std::endl;
