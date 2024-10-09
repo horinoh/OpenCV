@@ -15,7 +15,22 @@
             - WITH_CUDA にチェックを入れる
             - CMAKE_INSTALL_PREFIX に **OPENCV_SDK_PATH** と同じフォルダを指定しておく
         - GSreamer を使用する場合
-            - WIDTH_GSTREAMER にチェックを入れる (インストールされていればデフォルトでチェックが付いている？)
+            - WIDTH_GSTREAMER、OPENCV_GAPI_GSTREAMER にチェックを入れる
+            - GSTREAMER_XXX 系を設定する
+                ~~~
+                GSTREAMER_app_LIBRARY               C:/gstreamer/1.0/msvc_x86_64/lib/gstapp-1.0.lib
+                GSTREAMER_audio_LIBRARY             C:/gstreamer/1.0/msvc_x86_64/lib/gstaudio-1.0.lib
+                GSTREAMER_base_LIBRARY              C:/gstreamer/1.0/msvc_x86_64/lib/gstbase-1.0.lib
+                GSTREAMER_glib_INCLUDE_DIR          C:/gstreamer/1.0/msvc_x86_64/include/glib-2.0
+                GSTREAMER_glib_LIBRARY              C:/gstreamer/1.0/msvc_x86_64/lib/glib-2.0.lib
+                GSTREAMER_glibconfig_INCLUDE_DIR    C:/gstreamer/1.0/msvc_x86_64/lib/glib-2.0/include
+                GSTREAMER_gobject_LIBRARY           C:/gstreamer/1.0/msvc_x86_64/lib/gobject-2.0.lib
+                GSTREAMER_gst_INCLUDE_DIR           C:/gstreamer/1.0/msvc_x86_64/include/gstreamer-1.0
+                GSTREAMER_gstreamer_LIBRARY         C:/gstreamer/1.0/msvc_x86_64/lib/gstreamer-1.0.lib
+                GSTREAMER_pbutils_LIBRARY           C:/gstreamer/1.0/msvc_x86_64/lib/gstpbutils-1.0.lib
+                GSTREAMER_riff_LIBRARY              C:/gstreamer/1.0/msvc_x86_64/lib/gstriff-1.0.lib
+                GSTREAMER_video_LIBRARY             C:/gstreamer/1.0/msvc_x86_64/lib/gstvideo-1.0.lib
+                ~~~
         - 再度 "Configure"
     - "Generate"
         - OpenCV.sln ができる
@@ -54,6 +69,7 @@
 
     - [ダウンロード](https://gstreamer.freedesktop.org/download/#windows)
         - Gstreamerの開発目的では runtime, development の両方をインストール
+            - デフォルト設定ではインストールされない項目がある、全選択して全てインストールしておく
         - デフォルトでは、以下のような場所にインストールされるので、環境変数 Path を通しておく
             ~~~
             C:\gstreamer\1.0\msvc_x86_64\bin
